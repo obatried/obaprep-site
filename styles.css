@@ -130,6 +130,8 @@ a { color: inherit; }
 .field input::placeholder { color: #968b7c; }
 .field input:focus-visible { outline: none; border-color: var(--wine); box-shadow: 0 0 0 3px rgba(124,36,52,0.16); }
 .field-note { margin-top: 10px; font-size: 13.5px; color: var(--secondary); }
+.field-note a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.field-note a:hover { color: var(--wine); }
 .form-success { margin-top: 14px; color: var(--sage); font-weight: 600; display: none; }
 .form-error { margin-top: 14px; color: var(--wine); font-weight: 600; display: none; }
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
