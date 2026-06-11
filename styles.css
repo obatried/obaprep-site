@@ -1,0 +1,225 @@
+/* ObaPrep landing — brand-locked to the app's "Editorial Warm" system.
+   Fraunces (display) + system sans (body). Wine on cream. Light only by brand. */
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("fonts/Fraunces-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Fraunces";
+  src: url("fonts/Fraunces-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Fraunces";
+  src: url("fonts/Fraunces-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  --cream: #f7f3eb;
+  --surface: #fcfaf5;
+  --tan: #ece5d8;
+  --tan-strong: #ded3bf;
+  --ink: #201a15;
+  --secondary: #5f564b;
+  --wine: #7c2434;
+  --deep-wine: #5a1726;
+  --sage: #3e6b4e;
+  --sage-bg: #e9f0e7;
+
+  --radius-card: 16px;
+  --radius-input: 12px;
+  --radius-pill: 999px;
+  --maxw: 1180px;
+  --shadow-soft: 0 24px 60px -28px rgba(42, 26, 20, 0.45);
+  --shadow-card: 0 14px 36px -22px rgba(42, 26, 20, 0.4);
+
+  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 { font-family: var(--serif); font-weight: 800; line-height: 1.05; margin: 0; letter-spacing: -0.015em; }
+p { margin: 0; }
+a { color: inherit; }
+
+.container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+#waitlist { scroll-margin-top: 96px; }
+:target { scroll-margin-top: 88px; }
+.eyebrow-italic { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--wine); }
+
+/* ---------- buttons + pills ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font-family: var(--sans); font-size: 16px; font-weight: 600;
+  padding: 14px 26px; border-radius: var(--radius-pill);
+  border: 1px solid transparent; cursor: pointer; text-decoration: none;
+  transition: transform 0.18s cubic-bezier(0.16,1,0.3,1), background 0.18s, box-shadow 0.18s;
+  white-space: nowrap;
+}
+.btn-primary { background: var(--wine); color: var(--cream); box-shadow: 0 10px 24px -14px rgba(124,36,52,0.8); }
+.btn-primary:hover { background: var(--deep-wine); }
+.btn-primary:active { transform: translateY(1px) scale(0.99); }
+.btn-ghost { background: transparent; color: var(--wine); border-color: var(--tan-strong); }
+.btn-ghost:hover { background: var(--surface); }
+
+.pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 600; letter-spacing: 0.01em;
+  color: var(--wine); background: var(--surface);
+  border: 1px solid var(--tan-strong); border-radius: var(--radius-pill);
+  padding: 7px 15px;
+}
+.pill .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--sage); }
+
+/* ---------- nav ---------- */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(247, 243, 235, 0.82);
+  backdrop-filter: saturate(140%) blur(10px);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid rgba(222, 211, 191, 0.6);
+}
+.nav-inner { height: 68px; display: flex; align-items: center; justify-content: space-between; }
+.brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; color: var(--ink); }
+.brand img { width: 32px; height: 32px; border-radius: 8px; }
+.brand span { font-family: var(--serif); font-weight: 800; font-size: 21px; letter-spacing: -0.01em; }
+.nav .btn { padding: 10px 20px; font-size: 15px; }
+
+/* ---------- hero ---------- */
+.hero { padding: 72px 0 84px; }
+.hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; }
+.hero-copy { min-width: 0; }
+.hero-form, .field { max-width: 100%; }
+.hero h1 { font-size: clamp(34px, 8.5vw, 68px); margin: 22px 0 0; overflow-wrap: break-word; }
+.hero h1 .it { font-style: italic; font-weight: 400; line-height: 1.1; padding-bottom: 0.06em; }
+.hero-sub { margin-top: 20px; font-size: 19px; color: var(--secondary); max-width: 30ch; }
+.hero-form { margin-top: 30px; }
+.hero-phone { justify-self: center; }
+
+.field { display: flex; gap: 10px; max-width: 440px; }
+.field input[type="email"] {
+  flex: 1; min-width: 0; font-family: var(--sans); font-size: 16px; color: var(--ink);
+  background: var(--surface); border: 1px solid var(--tan-strong);
+  border-radius: var(--radius-input); padding: 14px 16px;
+}
+.field input::placeholder { color: #968b7c; }
+.field input:focus-visible { outline: none; border-color: var(--wine); box-shadow: 0 0 0 3px rgba(124,36,52,0.16); }
+.field-note { margin-top: 10px; font-size: 13.5px; color: var(--secondary); }
+.form-success { margin-top: 14px; color: var(--sage); font-weight: 600; display: none; }
+
+/* phone */
+.phone {
+  width: min(300px, 78vw); border-radius: 34px; overflow: hidden;
+  border: 1px solid var(--tan-strong); background: var(--surface);
+  box-shadow: var(--shadow-soft);
+}
+.phone img { display: block; width: 100%; height: auto; }
+
+/* ---------- section scaffolding ---------- */
+section { padding: 78px 0; }
+.section-head { max-width: 38ch; margin-bottom: 44px; }
+.section-head h2 { font-size: clamp(30px, 4.4vw, 44px); }
+.section-head p { margin-top: 16px; color: var(--secondary); font-size: 18px; }
+
+/* ---------- method (three beats, no cards) ---------- */
+.method { background: var(--surface); border-top: 1px solid var(--tan); border-bottom: 1px solid var(--tan); }
+.beats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+.beat .num { font-family: var(--serif); font-weight: 800; font-size: 30px; color: var(--wine); }
+.beat h3 { font-size: 23px; margin: 14px 0 10px; }
+.beat p { color: var(--secondary); font-size: 16.5px; }
+
+/* ---------- showcase ---------- */
+.shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; align-items: start; }
+.shot { border-radius: 28px; overflow: hidden; border: 1px solid var(--tan-strong); box-shadow: var(--shadow-card); background: var(--surface); }
+.shot img { display: block; width: 100%; height: auto; }
+.shot-cap { font-size: 15.5px; color: var(--secondary); margin-top: 14px; text-align: center; }
+
+/* ---------- pricing ---------- */
+.price-wrap { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; }
+.price-card {
+  background: var(--surface); border: 1px solid var(--tan-strong);
+  border-radius: var(--radius-card); padding: 32px 34px; box-shadow: var(--shadow-card);
+}
+.price-free { display: inline-flex; align-items: center; gap: 8px; color: var(--sage); font-weight: 700; font-size: 15px; }
+.price-row { display: flex; align-items: baseline; gap: 12px; margin-top: 18px; }
+.price-row .amt { font-family: var(--serif); font-weight: 800; font-size: 40px; }
+.price-row .per { color: var(--secondary); font-size: 16px; }
+.price-divider { height: 1px; background: var(--tan); margin: 20px 0; }
+.price-fine { color: var(--secondary); font-size: 15px; }
+.price-list { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 11px; }
+.price-list li { display: flex; gap: 10px; font-size: 16px; color: var(--ink); }
+.price-list .tick { color: var(--sage); font-weight: 800; }
+
+/* ---------- faq ---------- */
+.faq-list { max-width: 760px; }
+.faq details { border-top: 1px solid var(--tan); padding: 6px 0; }
+.faq details:last-child { border-bottom: 1px solid var(--tan); }
+.faq summary {
+  list-style: none; cursor: pointer; padding: 18px 0;
+  font-family: var(--serif); font-weight: 600; font-size: 20px;
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary .chev { color: var(--wine); transition: transform 0.2s ease; flex: none; font-size: 22px; line-height: 1; }
+.faq details[open] summary .chev { transform: rotate(45deg); }
+.faq details p { color: var(--secondary); font-size: 16.5px; padding: 0 0 20px; max-width: 64ch; }
+
+/* ---------- footer ---------- */
+.footer { background: var(--ink); color: #d7cdbf; padding: 60px 0 44px; }
+.footer a { color: #e8dccb; text-decoration: none; }
+.footer a:hover { color: #fff; }
+.footer-top { display: flex; justify-content: space-between; gap: 32px; flex-wrap: wrap; align-items: flex-start; }
+.footer .brand span { color: #f7f3eb; }
+.footer-tag { margin-top: 14px; color: #b3a596; font-size: 15.5px; max-width: 34ch; font-family: var(--serif); font-style: italic; }
+.footer-links { display: flex; gap: 30px; flex-wrap: wrap; font-size: 15.5px; }
+.footer-bottom { margin-top: 40px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.12); font-size: 14px; color: #9d9082; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+/* ---------- scroll reveal (progressive, reduced-motion safe) ---------- */
+/* Only hide when JS is present (graceful no-JS / failed-JS fallback shows everything). */
+@media (prefers-reduced-motion: no-preference) {
+  .js .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+  .js .reveal.is-visible { opacity: 1; transform: none; }
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .hero { padding: 48px 0 56px; }
+  .hero-sub { max-width: 100%; }
+  .hero-phone { order: -1; }
+  .beats { grid-template-columns: 1fr; gap: 30px; }
+  .price-wrap { grid-template-columns: 1fr; gap: 32px; }
+  .shots { grid-template-columns: 1fr; gap: 36px; max-width: 360px; margin: 0 auto; }
+  section { padding: 60px 0; }
+}
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  .field { flex-direction: column; }
+  .field .btn { width: 100%; }
+  .nav .btn { display: none; }
+}

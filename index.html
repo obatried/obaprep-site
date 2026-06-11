@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ObaPrep — Know every GRE word by test day</title>
+  <meta name="description" content="Spaced-repetition GRE vocabulary, paced to your exam date, with real GRE questions woven in. Your first session is free. Coming soon to the App Store." />
+  <link rel="icon" type="image/png" href="assets/icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="ObaPrep — Know every GRE word by test day" />
+  <meta property="og:description" content="Spaced-repetition GRE vocabulary, paced to your exam date, with real GRE questions woven in. Coming soon to the App Store." />
+  <meta property="og:image" content="assets/og-card.png" />
+  <meta property="og:url" content="https://obaprep.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preload" href="fonts/Fraunces-ExtraBold.ttf" as="font" type="font/ttf" crossorigin />
+  <script>document.documentElement.className += " js";</script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="ObaPrep home">
+        <img src="assets/icon.png" alt="" />
+        <span>ObaPrep</span>
+      </a>
+      <a class="btn btn-primary" href="#waitlist">Join the waitlist</a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="pill"><span class="dot"></span> Coming soon to the App Store</span>
+          <h1>Know every GRE word <span class="it">by test day.</span></h1>
+          <p class="hero-sub">Spaced-repetition vocabulary, paced to your exam date, with real GRE questions woven into every session.</p>
+
+          <form class="hero-form" id="waitlist" action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST">
+            <div class="field">
+              <input type="email" name="email" required placeholder="you@email.com" aria-label="Email address" />
+              <button class="btn btn-primary" type="submit">Join the waitlist</button>
+            </div>
+            <p class="field-note">One email, the day it goes live on the App Store. Nothing else.</p>
+            <p class="form-success" id="formSuccess">You're on the list. We'll be in touch at launch.</p>
+          </form>
+        </div>
+
+        <div class="hero-phone">
+          <div class="phone reveal">
+            <img src="assets/screen-home.png" width="640" height="1390" alt="ObaPrep home screen showing cards due today and a start review button" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- METHOD -->
+    <section class="method">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Built for the way memory actually works.</h2>
+          <p>Not cramming. Not bottomless decks. A short daily session that puts each word in front of you right as it's about to slip.</p>
+        </div>
+        <div class="beats">
+          <div class="beat reveal">
+            <h3>Paced to your exam date</h3>
+            <p>You tell ObaPrep when you test. It schedules every word to come back right before you'd forget it, so nothing leaks out before exam day.</p>
+          </div>
+          <div class="beat reveal">
+            <h3>Real questions, not just definitions</h3>
+            <p>You see each word the way the GRE actually uses it, in context, instead of memorizing flashcards in a vacuum.</p>
+          </div>
+          <div class="beat reveal">
+            <h3>Recall, not just recognition</h3>
+            <p>Typing and retrieval beat passive flipping. ObaPrep makes you produce the word, so it's there when the question is.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHOWCASE -->
+    <section class="showcase">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>A look inside.</h2>
+          <p>See a word, wrestle with it, lock it in. The whole loop, in a few minutes a day.</p>
+        </div>
+        <div class="shots">
+          <figure class="shot-figure reveal" style="margin:0">
+            <div class="shot"><img src="assets/screen-study-mc.png" width="640" height="1390" alt="A multiple-choice GRE vocabulary question in ObaPrep" /></div>
+            <figcaption class="shot-cap">Words in the context the GRE uses them.</figcaption>
+          </figure>
+          <figure class="shot-figure reveal" style="margin:0">
+            <div class="shot"><img src="assets/screen-study-reveal.png" width="640" height="1390" alt="A revealed answer with definition and example in ObaPrep" /></div>
+            <figcaption class="shot-cap">Learn it, then see exactly why.</figcaption>
+          </figure>
+          <figure class="shot-figure reveal" style="margin:0">
+            <div class="shot"><img src="assets/screen-study-typed.png" width="640" height="1390" alt="Typing a vocabulary word from memory in ObaPrep" /></div>
+            <figcaption class="shot-cap">Type it from memory, not just recognize it.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing">
+      <div class="container price-wrap">
+        <div class="reveal">
+          <h2 style="font-size:clamp(30px,4.4vw,44px)">Honest about the price.</h2>
+          <p style="margin-top:16px;color:var(--secondary);font-size:18px;max-width:42ch">Your first full session is free, with no card and no countdown hanging over you. If it clicks, Pro unlocks the rest.</p>
+          <ul class="price-list">
+            <li><span class="tick">✓</span> A 14-day free trial on Pro</li>
+            <li><span class="tick">✓</span> No ads, anywhere, ever</li>
+            <li><span class="tick">✓</span> Your study data stays on your phone</li>
+            <li><span class="tick">✓</span> Cancel anytime in a tap</li>
+          </ul>
+        </div>
+        <div class="price-card reveal">
+          <span class="price-free"><span class="tick">✓</span> First session free</span>
+          <div class="price-row"><span class="amt">$12</span><span class="per">/ month</span></div>
+          <div class="price-row"><span class="amt">$48</span><span class="per">/ year &nbsp;·&nbsp; about $4 a month</span></div>
+          <div class="price-divider"></div>
+          <p class="price-fine">14-day free trial on both. Shown in USD; the App Store displays your local price.</p>
+          <a class="btn btn-ghost" href="#waitlist" style="margin-top:20px;width:100%">Join the waitlist</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+      <div class="container">
+        <div class="section-head reveal"><h2>Questions, answered.</h2></div>
+        <div class="faq-list reveal">
+          <details>
+            <summary>Is ObaPrep only on iPhone? <span class="chev">+</span></summary>
+            <p>For now, yes. ObaPrep is built for iOS first. If you're on Android, join the waitlist and we'll tell you the moment there's a version for you.</p>
+          </details>
+          <details>
+            <summary>When does it launch? <span class="chev">+</span></summary>
+            <p>Soon. It's submitted to the App Store and going through Apple's review. Join the waitlist and you'll hear from us the day it's live.</p>
+          </details>
+          <details>
+            <summary>How is this different from Anki, Quizlet, or Magoosh? <span class="chev">+</span></summary>
+            <p>ObaPrep is GRE vocabulary in one place, paced to your test date. Real GRE-style questions are built in, the scheduling is automatic, and there's nothing to set up: no decks to build, no settings to tune.</p>
+          </details>
+          <details>
+            <summary>What do I get for free? <span class="chev">+</span></summary>
+            <p>Your whole first session: a quick demo, a short diagnostic, your study plan, and the first round of words. After that, Pro unlocks unlimited sessions with a 14-day free trial.</p>
+          </details>
+          <details>
+            <summary>Do I need internet to study? <span class="chev">+</span></summary>
+            <p>No. Your words and your progress live on your phone, so you can study on a plane or underground.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a class="brand" href="#top"><img src="assets/icon.png" alt="" style="width:30px;height:30px;border-radius:8px" /><span>ObaPrep</span></a>
+          <p class="footer-tag">Walk into the GRE knowing.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="#waitlist">Join the waitlist</a>
+          <a href="https://obatried.github.io/obaprep-legal/privacy.html">Privacy</a>
+          <a href="https://obatried.github.io/obaprep-legal/terms.html">Terms</a>
+          <a href="https://obatried.github.io/obaprep-legal/support.html">Support</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Obafemi Ajayi</span>
+        <span>ObaPrep is independent and not affiliated with ETS or the GRE program.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
