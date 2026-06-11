@@ -13,19 +13,50 @@
     els.forEach(function (el) { io.observe(el); });
   }
 
-  // Waitlist form. NOTE: Formspree form id is not wired yet (action contains REPLACE_WITH_FORM_ID).
-  // Until it's set, intercept the submit so the page demos cleanly instead of POSTing nowhere.
+  // Waitlist form → Cloudflare Worker (obaprep-waitlist) → beehiiv "ObaPrep" list.
   var form = document.getElementById("waitlist");
   if (form) {
+    var ENDPOINT = "https://obaprep-waitlist.ajayioba2.workers.dev";
+    var btn = document.getElementById("waitlistSubmit");
+    var ok = document.getElementById("formSuccess");
+    var err = document.getElementById("formError");
+    var emailInput = form.querySelector('input[type="email"]');
+    var hpInput = form.querySelector('input[name="company"]');
+
+    function fail(label) {
+      if (err) err.style.display = "block";
+      if (btn) { btn.disabled = false; btn.textContent = label; }
+    }
+
     form.addEventListener("submit", function (ev) {
-      var notWired = form.getAttribute("action").indexOf("REPLACE_WITH_FORM_ID") !== -1;
-      if (notWired) {
-        ev.preventDefault();
-        var ok = document.getElementById("formSuccess");
-        if (ok) ok.style.display = "block";
-        form.querySelector('input[type="email"]').value = "";
-      }
-      // Once the real Formspree id is in place, this guard is skipped and the form POSTs normally.
+      ev.preventDefault();
+      if (err) err.style.display = "none";
+
+      var email = ((emailInput && emailInput.value) || "").trim();
+      if (!email) return;
+
+      var label = btn ? btn.textContent : "";
+      if (btn) { btn.disabled = true; btn.textContent = "Joining…"; }
+
+      fetch(ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email, company: (hpInput && hpInput.value) || "" })
+      })
+        .then(function (r) {
+          return r.json().catch(function () { return {}; }).then(function (d) {
+            return r.ok && d && d.ok;
+          });
+        })
+        .then(function (success) {
+          if (!success) return fail(label);
+          if (ok) ok.style.display = "block";
+          var field = form.querySelector(".field");
+          var note = form.querySelector(".field-note");
+          if (field) field.style.display = "none";
+          if (note) note.style.display = "none";
+        })
+        .catch(function () { fail(label); });
     });
   }
 })();
